@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Panel de Dispositivos</title>
+</head>
+<body>
+    <h1>Panel de Dispositivos</h1>
+    <ul>
+    {% for d in dispositivos %}
+    <li> Dispositivo: {{ d.nombre }} - Consumo: {{ d.consumo }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Panel de Dispositivos</h2>
+
+    <ul>
+        {% for dispositivo in dispositivos %}
+            <li>
+                {{ dispositivo.nombre }} - Consumo: {{ dispositivo.consumo }}
+                {% if dispositivo.consumo > consumo_maximo %}
+                    <strong style="color:red;">(¡Advertencia: consumo crítico!)</strong>
+                {% elif dispositivo.consumo == consumo_maximo %}
+                    <strong style="color:orange;">(Atención: consumo en el límite)</strong>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Advertencias</h3>
+    <ul>
+        {% for advertencia in advertencias %}
+            <li>{{ advertencia }}</li>
+        {% empty %}
+            <li>No hay advertencias.</li>
+        {% endfor %}
+    </ul>
+
+    <p>Dispositivos en estado crítico: <strong>{{ estado_critico }}</strong></p>
+</body>
+</html>
