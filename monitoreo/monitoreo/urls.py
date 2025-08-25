@@ -23,5 +23,5 @@ from dispositivos.views import panel_dispositivos
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio), # Esta es la vista que se mostrara en la raiz
-    path('panel/', panel_dispositivos),
+    path('panel/', panel_dispositivos, name = 'panel'),
 ]
